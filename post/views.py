@@ -5,7 +5,7 @@ from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIV
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-
+from .permissions import IsOwnerOrReadOnly
 from .serializers  import PostSerializer
 
 from .models import Post
@@ -19,6 +19,7 @@ class PostListView(ListCreateAPIView):
 
 
 class PostDetailView(RetrieveUpdateDestroyAPIView):
+    permission_classes = (IsOwnerOrReadOnly,)
     queryset=Post.objects.all()
     serializer_class= PostSerializer
 
