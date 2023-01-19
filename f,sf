@@ -1,0 +1,63 @@
+[33mcommit e130b2d1704fb6d08c2eecb138113c0537f291fc[m[33m ([m[1;36mHEAD -> [m[1;32mibrahim[m[33m, [m[1;31morigin/ibrahim[m[33m)[m
+Merge: 59fa82e befef3e
+Author: Ibrahim Almanaseer <ibrahimnalmanaseer@gmail.com>
+Date:   Mon Jan 16 18:04:01 2023 +0000
+
+    add cors header
+
+[33mcommit 59fa82eeae8401816dc91c68a6c3b1fffc36bf34[m
+Author: Ibrahim Almanaseer <ibrahimnalmanaseer@gmail.com>
+Date:   Mon Jan 16 15:06:59 2023 +0000
+
+    add corsheader ,and whitelist, CORS_ORIGIN_WHITELIST
+
+[33mcommit befef3e7fd64e0e1cbaad2ae7d355ecfaee008e0[m
+Merge: d4f36c6 b43531c
+Author: osama elddadow <109808905+osamadado123@users.noreply.github.com>
+Date:   Mon Jan 16 17:46:38 2023 +0300
+
+    Merge pull request #3 from HM-Tour/osama
+    
+    jwt authintication django
+
+[33mcommit b43531cb5097182aa5e7cbb003398a7fe7122cb6[m
+Author: osamadado123 <osama.aldado@gmail.com>
+Date:   Mon Jan 16 14:46:03 2023 +0000
+
+    jwt authintication django
+
+[33mcommit d4f36c65298ee99cc33b834dd52ed4a1793ac2a0[m
+Merge: da45281 2f5fdb7
+Author: Noor Alkhateeb <109729376+Noor696@users.noreply.github.com>
+Date:   Sun Jan 15 17:39:10 2023 +0300
+
+    Merge pull request #2 from HM-Tour/noor
+    
+    createe image field on post
+
+[33mcommit 2f5fdb72d2cc6aa03af66000af6409668452f7bc[m[33m ([m[1;31morigin/noor[m[33m)[m
+Author: Noor696 <eng.nooralhateeb@gmail.com>
+Date:   Sun Jan 15 14:37:22 2023 +0000
+
+    creat image field on post
+
+[33mcommit da45281e1079b6fbdfeb8599be7f98cb89390621[m
+Merge: 5bde0f2 8a2c721
+Author: Ibrahim Almanaseer <62019258+Ibrahimnalmanaseer@users.noreply.github.com>
+Date:   Sat Jan 14 18:58:13 2023 +0300
+
+    Merge pull request #1 from HM-Tour/ibrahim
+    
+    create django rest api and models
+
+[33mcommit 8a2c7214e8d06ccd0221a19e0192b7c720c97c6e[m
+Author: Ibrahim Almanaseer <ibrahimnalmanaseer@gmail.com>
+Date:   Sat Jan 14 15:55:30 2023 +0000
+
+    create django rest api and models
+
+[33mcommit 5bde0f2d37cdbebc29964480c910ddf5ea31954c[m
+Author: Ibrahim Almanaseer <62019258+Ibrahimnalmanaseer@users.noreply.github.com>
+Date:   Thu Jan 12 10:48:06 2023 +0300
+
+    Initial commit
