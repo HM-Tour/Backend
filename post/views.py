@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 # Create your views here.
-from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
+from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView,ListAPIView
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
@@ -23,6 +23,22 @@ class PostDetailView(RetrieveUpdateDestroyAPIView):
     queryset=Post.objects.all()
     serializer_class= PostSerializer
 
+
+
+class UserPostsView(ListAPIView):
+    serializer_class = PostSerializer
+
+    def get_queryset(self):
+       
+
+        return Post.objects.filter(owner=self.request.user)
+
+
+
+
+
+
+
 class GetImagesView(APIView):
     def get(self, request, format=None):
         if Post.objects.all().exists():
@@ -38,6 +54,12 @@ class GetImagesView(APIView):
                 {'error': 'No images found'},
                 status=status.HTTP_404_NOT_FOUND
             )
+
+
+
+
+
+
 
 
 class ImageUploadView(APIView):
@@ -62,6 +84,7 @@ class ImageUploadView(APIView):
                 rate=rate,
                 location=location,
                 price=price,
+                owner=self.request.user
             )
 
             return Response(
@@ -73,3 +96,5 @@ class ImageUploadView(APIView):
                 {'error': 'Something went wrong when uploading image'},
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR
             )
+
+
