@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 import os
+from datetime import timedelta
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -151,6 +152,15 @@ REST_FRAMEWORK = {
 MEDIA_URL = '/images/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
+
+
+SIMPLE_JWT={
+
+    'ACCESS_TOKEN_LIFETIME':timedelta(minutes=30),
+    
+}
+
+
 
 
 CORS_ORIGIN_WHITELIST= ["http://localhost:3000",    "http://localhost:8000",    "http://127.0.0.1:8000",]
