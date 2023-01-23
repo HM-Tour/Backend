@@ -5,14 +5,17 @@ from .serializers import CustomUserSerializer,UserSerializer
 from rest_framework import generics
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from rest_framework.authentication import TokenAuthentication
+
+
 
 class CustomUserViewSet(viewsets.ModelViewSet):
     permission_classes = (permissions.AllowAny, )
     queryset = CustomUser.objects.all()
     serializer_class = CustomUserSerializer
+    authentication_classes = (TokenAuthentication,)
 
-
-    
+   
     
 
 
