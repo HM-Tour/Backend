@@ -9,6 +9,7 @@ from rest_framework.authentication import TokenAuthentication
 
 
 
+from django.contrib.auth.hashers import make_password
 
 from rest_framework.generics import (
     RetrieveUpdateAPIView
@@ -23,11 +24,17 @@ class CustomUserViewSet(viewsets.ModelViewSet):
 
    
     
+    def perform_create(self, serializer):
+        password = self.request.data.get("password")
+        hashed_password = make_password(password)
+        serializer.save(password=hashed_password)
+
+    
+    
 
 
 class RegisterView(APIView):
     permission_classes = (permissions.AllowAny, )
-  
 
     def post(self, request):
         try:
@@ -45,6 +52,7 @@ class RegisterView(APIView):
             if password == re_password:
                 if len(password) >= 8:
                     if not CustomUser.objects.filter(username=username).exists():
+                        hashed_password = make_password(password)
                         user = CustomUser.objects.create_user(
                             firstName=firstName,
                             lastName=lastName,
@@ -52,7 +60,7 @@ class RegisterView(APIView):
                             description=description,
                             username=username,
                             email=email,
-                            password=password,
+                            password=hashed_password,
                         )
 
                         user.save()
@@ -87,7 +95,6 @@ class RegisterView(APIView):
                 {'error': 'Something went wrong when trying to register account'},
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR
             )
-
 
 
 class ProfileUpdate(RetrieveUpdateAPIView):
