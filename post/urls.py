@@ -6,4 +6,6 @@ urlpatterns = [
     path('upload', ImageUploadView.as_view()),
     path('fetch-images', GetImagesView.as_view()),
     path('user-posts/',UserPostsView.as_view(), name='user-posts'),
+    path("update/<int:pk>/", PostUpdate.as_view(), name="PostUpdate"),
+
 ]
