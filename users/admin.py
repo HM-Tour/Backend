@@ -11,7 +11,7 @@ class CustomUserAdmin(UserAdmin):
         }
     ),(
         'personal information',{
-            'fields':('first_name','last_name'),
+            'fields':('first_name','last_name', 'location', 'description'),
         }
     ),)
 
