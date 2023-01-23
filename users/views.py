@@ -1,10 +1,16 @@
 from rest_framework import viewsets
 from rest_framework import permissions, status
 from .models import CustomUser
-from .serializers import CustomUserSerializer,UserSerializer
+from .serializers import CustomUserSerializer,UpdateUserSerializer
 from rest_framework import generics
 from rest_framework.views import APIView
 from rest_framework.response import Response
+
+
+from rest_framework.generics import (
+    RetrieveUpdateAPIView
+
+)
 
 class CustomUserViewSet(viewsets.ModelViewSet):
     permission_classes = (permissions.AllowAny, )
@@ -26,6 +32,8 @@ class RegisterView(APIView):
 
             firstName = data['firstName']
             lastName = data['lastName']
+            location = data['location']
+            description = data['description']
             email=data['email']
             username = data['username']
             password = data['password']
@@ -37,6 +45,8 @@ class RegisterView(APIView):
                         user = CustomUser.objects.create_user(
                             firstName=firstName,
                             lastName=lastName,
+                            location=location,
+                            description=description,
                             username=username,
                             email=email,
                             password=password,
@@ -76,4 +86,8 @@ class RegisterView(APIView):
             )
 
 
-  
+
+class ProfileUpdate(RetrieveUpdateAPIView):
+    queryset = CustomUser.objects.all()
+    serializer_class = UpdateUserSerializer
+    fields = ["firstName", "lastName", "location", "description"]
