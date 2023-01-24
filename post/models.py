@@ -8,7 +8,7 @@ class Post(models.Model):
     owner=models.ForeignKey(get_user_model(),on_delete=models.CASCADE, blank=True)
     title=models.CharField(max_length=255)
     description=models.TextField(blank=True)
-    date=models.DateTimeField(auto_now_add=True)
+    date=models.DateField(auto_now_add=True)
     rate=models.IntegerField(default=5)
     image=models.ImageField(null=True, blank=True)
     location=models.TextField()
