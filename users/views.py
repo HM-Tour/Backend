@@ -5,10 +5,6 @@ from .serializers import CustomUserSerializer,UpdateUserSerializer
 from rest_framework import generics
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework.authentication import TokenAuthentication
-
-
-
 from django.contrib.auth.hashers import make_password
 
 from rest_framework.generics import (
@@ -20,9 +16,6 @@ class CustomUserViewSet(viewsets.ModelViewSet):
     permission_classes = (permissions.AllowAny, )
     queryset = CustomUser.objects.all()
     serializer_class = CustomUserSerializer
-    authentication_classes = (TokenAuthentication,)
-
-   
     
     def perform_create(self, serializer):
         password = self.request.data.get("password")
