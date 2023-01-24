@@ -7,8 +7,12 @@ django-cors-headers==3.13.0
 django-password-validators==1.7.0
 djangorestframework==3.14.0
 djangorestframework-simplejwt==5.2.2
+environ==1.0
+gunicorn==20.1.0
 Pillow==9.4.0
+psycopg2-binary==2.9.5
 pycparser==2.21
 PyJWT==2.6.0
+python-environ==0.4.54
 pytz==2022.7.1
 sqlparse==0.4.3
